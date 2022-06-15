@@ -48,6 +48,7 @@ typedef struct data
  * @next: next node
  * Description: single linked list to store separators
  */
+
 typedef struct sep_list_s
 {
 	char separator;
@@ -60,6 +61,7 @@ typedef struct sep_list_s
  * @next: next node
  * Description: single linked list to store command lines
  */
+
 typedef struct line_list_s
 {
 	char *line;
@@ -74,6 +76,7 @@ typedef struct line_list_s
  * @next: next node
  * Description: single linked list to store variables
  */
+
 typedef struct r_var_list
 {
 	int len_var;
@@ -87,42 +90,43 @@ typedef struct r_var_list
  * @name: The name of the command builtin i.e cd, exit, env
  * @f: data type pointer function.
  */
+
 typedef struct builtin_s
 {
 	char *name;
 	int (*f)(data_shell *datash);
 } builtin_t;
 
-/* aux_lists.c */
+/* simp_lists.c */
 sep_list *add_sep_node_end(sep_list **head, char sep);
 void free_sep_list(sep_list **head);
 line_list *add_line_node_end(line_list **head, char *line);
 void free_line_list(line_list **head);
 
-/* aux_lists2.c */
+/* simp_lists2.c */
 r_var *add_rvar_node(r_var **head, int lvar, char *var, int lval);
 void free_rvar_list(r_var **head);
 
-/* aux_str functions */
+/* simp_str functions */
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
 int _strspn(char *s, char *accept);
 
-/* aux_mem.c */
+/* simp_mem.c */
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
 
-/* aux_str2.c */
+/* simp_str2.c */
 char *_strdup(const char *s);
 int _strlen(const char *s);
 int cmp_chars(char str[], const char *delim);
 char *_strtok(char str[], const char *delim);
 int _isdigit(const char *s);
 
-/* aux_str3.c */
+/* simp_str3.c */
 void rev_string(char *s);
 
 /* check_syntax_error.c */
@@ -191,18 +195,18 @@ int (*get_builtin(char *cmd))(data_shell *datash);
 /* _exit.c */
 int exit_shell(data_shell *datash);
 
-/* aux_stdlib.c */
+/* simp_stdlib.c */
 int get_len(int n);
 char *aux_itoa(int n);
 int _atoi(char *s);
 
-/* aux_error1.c */
+/* simp_err1.c */
 char *strcat_cd(data_shell *, char *, char *, char *);
 char *error_get_cd(data_shell *datash);
 char *error_not_found(data_shell *datash);
 char *error_exit_shell(data_shell *datash);
 
-/* aux_error2.c */
+/* simp_err2.c */
 char *error_get_alias(char **args);
 char *error_env(data_shell *datash);
 char *error_syntax(char **args);
@@ -216,14 +220,14 @@ int get_error(data_shell *datash, int eval);
 /* get_sigint.c */
 void get_sigint(int sig);
 
-/* aux_help.c */
+/* simp_help.c */
 void aux_help_env(void);
 void aux_help_setenv(void);
 void aux_help_unsetenv(void);
 void aux_help_general(void);
 void aux_help_exit(void);
 
-/* aux_help2.c */
+/* simp_help2.c */
 void aux_help(void);
 void aux_help_alias(void);
 void aux_help_cd(void);
