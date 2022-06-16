@@ -5,6 +5,8 @@
  *
  * @datash: data relevant (environ)
  *
+ * set_env - set environment
+ *
  * Return: no return
  */
 void cd_dot(data_shell *datash)
